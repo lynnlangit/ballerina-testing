@@ -7,15 +7,15 @@ import ballerina/test;
 
 string greetingAct = "Hello, World!";
 
-function hello(string... args) returns (string) {
+function sayHello(string... args) returns (string) {
     return greetingAct;
 }
 
 string greetingExp = "Hello, World TDD!";
 
 @test:Config
-function testFuncTDD() {
-    string actual = hello(greetingAct);
+function testSayHelloTDD() {
+    string actual = sayHello(greetingAct);
     test:assertEquals(actual,greetingExp,msg="string test failed");
 }
 

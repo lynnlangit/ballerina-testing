@@ -1,6 +1,5 @@
-// In Ballerina, a closure is an inner lambda function that has visibility to 
-// its enclosing environment's scope. It can access its own scope, its enclosing 
-// environment's scope, and variables defined at the global scope.
+// Closure (an inner lambda function) that has visibility to its enclosing environment's scope
+// Closures can access -  1)their own scope 2)their enclosing environment's scope 3)variables defined at the global scope.
 
 import ballerina/io;
 
@@ -58,10 +57,9 @@ function main(string... args) {
     int result2 = bar(5);
     io:println("Answer multilevel closure: " + result2);
 
-    // shows how function pointers with closures are passed around
     var baz1 = functionPointers(7);
     var baz2 = baz1(5);
     int result3 = baz2(3);
-    io:println("Answer function pointer: " + result3);
+    io:println("Answer function pointers: " + result3);
 
 }

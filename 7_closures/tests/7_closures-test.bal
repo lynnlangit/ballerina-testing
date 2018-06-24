@@ -14,7 +14,6 @@ public function mockPrint(any... s) {
 function testFunc() {
     main();
     test:assertEquals("Answer basic closure: 48", "Answer basic closure: 48");
-
     // index array out of bounds error ???
     //test:assertEquals("Answer basic closure: 48", outputs[0]);
     //test:assertEquals("Answer multilevel closure: 63", outputs[1]);

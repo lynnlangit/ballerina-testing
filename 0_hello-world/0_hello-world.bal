@@ -1,7 +1,7 @@
 import ballerina/io;
 import ballerina/test;
 
-string greeting = "Hello, World!";
+//string greeting = "Hello, World!";
 
 function main(string... args) {
     io:println(greeting);

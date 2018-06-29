@@ -1,6 +1,7 @@
-import wso2/github4;
-import ballerina/io;
 import ballerina/config;
+import ballerina/http;
+import ballerina/io;
+import wso2/github4;
 
 // app idea -- analyze text sentiment of my GitHub code
 // use Ballerina GitHub package to retrieve data - https://central.ballerina.io/wso2/github4
@@ -8,26 +9,31 @@ import ballerina/config;
 // use AWS ML Text analysis (write a Ballerina package?  "")
 
 // M1: Pull and use Ballerina GitHub package, i.e. "Hello GitHub"
-function main (string[] args) {
-        endpoint github4:Client githubClient {
-            clientConfig: {
-                auth: {
-                    scheme:"oauth",
-                    accessToken:config:getAsString("GITHUB_TOKEN")
-                }
-            }   
-        };
-    
-        github4:Repository repository = {};
-        var repo = githubClient -> getRepository("lynnlangit/TeamTeri");
-        match repo {
-            github4:Repository rep => {repository = rep;}
-            github4:GitClientError err => {io:println(err);}
-        }
-        io:println(repository);
-    }
-    
 //      return info about my Repo
+
+function main(string... args) {
+    endpoint github4:Client githubClient {
+        clientConfig: {
+            auth:{
+                scheme:http:OAUTH2,
+                accessToken:config:getAsString("GITHUB_TOKEN")
+            }
+        }
+    };
+
+    github4:Repository repository = {};
+    var repo = githubClient->getRepository("lynnlangit/TeamTeri");
+    match repo {
+        github4:Repository rep => {
+            repository = rep;
+        }
+        github4:GitClientError err => {
+            io:println(err);
+        }
+    }
+
+    io:println(repository);
+}
 
 // M2 
 // Pull code and / or English (comments) from my GitHub Repos

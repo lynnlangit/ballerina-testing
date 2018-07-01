@@ -3,14 +3,6 @@ import ballerina/http;
 import ballerina/io;
 import wso2/github4;
 
-// app idea -- analyze text sentiment of my GitHub code
-// use Ballerina GitHub package to retrieve data - https://central.ballerina.io/wso2/github4
-// use GCP ML Text analysis (write a Ballerina package? push to Ballerina Central?)
-// use AWS ML Text analysis (write a Ballerina package?  "")
-
-// M1: Pull and use Ballerina GitHub package, i.e. "Hello GitHub"
-//      return info about my Repo
-
 function main(string... args) {
     endpoint github4:Client githubClient {
         clientConfig: {

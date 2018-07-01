@@ -18,7 +18,6 @@ endpoint http:Client clientEP {
 function testTravelAgencyService() {
 
     http:Request req;
-
     json payload = {
         "Name":"Alice",
         "ArrivalDate":"12-03-2018",

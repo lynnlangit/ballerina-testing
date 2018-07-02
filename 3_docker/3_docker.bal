@@ -1,19 +1,15 @@
 import ballerina/http;
-import ballerinax/docker;
+// import ballerinax/docker;
 
-@docker:Expose{}
-endpoint http:Listener helloWorldEP {
-    port:9090
-};
+// @docker:Expose{}
+endpoint http:Listener helloWorldEP {port:9090};
 
-@http:ServiceConfig {
-      basePath:"/helloWorld"
-}
-@docker:Config {
-    registry:"docker.abc.com",
-    name:"helloworld",
-    tag:"v1.0"
-}
+// @docker:Config {
+//     registry:"docker.abc.com",
+//     name:"helloworld",
+//     tag:"v1.0"
+// }
+@http:ServiceConfig {basePath:"/helloWorld"}
 service<http:Service> helloWorld bind helloWorldEP {
     sayHello (endpoint outboundEP, http:Request request) {
         http:Response response = new;

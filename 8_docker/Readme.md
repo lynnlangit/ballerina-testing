@@ -1,28 +1,8 @@
-## How to run
 
-### Set up Prerequisites
-
-1. Download and install JDK 8 or later -- VERIFY: run `javac -version`, should be 1.8.0 or above  
-
-2. Get a clone or download the source from this repository (https://github.com/ballerinax/docker)  
-
-3. Run the Maven command ``mvn clean  install`` from within the docker directory.  TIP: run `which docker` to get the location of your docker directory.  
-
-4. Copy ``target/docker-extension-0.9***.jar`` file to ``<BALLERINA_HOME>/bre/lib`` directory.  TIP: run `which ballerina` to get the location of your ballerina directory.  
-
-5. Run ``ballerina build <.bal filename>`` to generate artifacts.
-
-The docker artifacts will be created in a folder called docker with following structure.
-```bash
-|── docker
-|    └── Dockerfile
-└── outputfilename.balx
-```
-
----
-## Sample1: Docker Hello World
+## Sample1: Hello Docker 
 
 - This sample runs simple ballerina hello world service in a docker container. 
+- More at https://github.com/ballerinax/docker/tree/master/samples
 - The service is annotated with @docker:Config{} without passing any parameters. 
 - Default values for docker annotation attributes will be used to create docker artifacts.
 - Following files will be generated from this sample.

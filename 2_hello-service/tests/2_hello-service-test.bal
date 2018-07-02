@@ -4,7 +4,7 @@ import ballerina/http;
 
 boolean serviceStarted;
 
-function startService() {serviceStarted = test:startServices("4_hello-service");}
+function startService() {serviceStarted = test:startServices("2_hello-service");}
 
 @test:Config { before: "startService",after: "stopService" }
 function testFunc() {
@@ -24,5 +24,5 @@ function testFunc() {
 }
 
 function stopService() {
-    test:stopServices("4_hello-service");
+    test:stopServices("2_hello-service");
 }

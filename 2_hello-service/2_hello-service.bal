@@ -1,5 +1,5 @@
 // To test as a package - cd to top level `ballerina-test`
-// Test by `ballerina test 4_hello-service`
+// Test by `ballerina test 2_hello-service`
 // NOTE: Do NOT run the actual service, as you are using 'startService' & 'stopService'
 // Invoke `curl http://localhost:9090/hello/sayHello`
 

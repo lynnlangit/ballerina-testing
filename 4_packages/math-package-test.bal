@@ -5,7 +5,7 @@ import ballerina/test;
 @test:Mock {packageName: ".",functionName: "returnPi"}
 public function mockReturnPi() returns (float) {
     console:println("I'm the mock function!");
-    return math:PI;
+    return math:PI + 1.0;   // different and will fail (shows mocking)
 }
 
 @test:Config {}

@@ -1,17 +1,24 @@
-// Here's how you can import a package. You can only refer to public symbols of an imported package.
-// By default, the last element of the package name becomes an alias that is used to refer to symbols of the imported package.
-// If the package name has dots, then the last word after the last dot becomes the alias.
 import ballerina/math;
-
-// Declare an explicit alias
 import ballerina/io as console;
+import ballerina/test;
 
-function main(string... args) {
+@test:Mock {packageName: ".",functionName: "returnPi"}
+public function mockReturnPi() returns (float) {
+    console:println("I'm the mock function!");
+    return math:PI;
+}
 
-    // Refer to the symbols of another package.
-    // Here `math:PI` is a qualified identifier. Note the usage of the package alias.
+@test:Config {}
+function testAssertIntEquals() {
+    float answer = 0;
+    answer = returnPi( );
+    console:println("Function mocking test");
+    test:assertEquals(answer, math:PI, msg = "function mocking failed");
+}
+
+public function returnPi() returns (float) {
+
     float piValue = math:PI;
-
-    // Use the explicit alias `console` to invoke a function defined in the `ballerina/io` package.
-    console:println(piValue);
+    return piValue;
+    
 }

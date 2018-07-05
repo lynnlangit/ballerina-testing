@@ -1,10 +1,7 @@
 import ballerina/test;
 import ballerina/io;
 
-@test:Mock {
-    packageName: ".",
-    functionName: "intAdd"
-}
+@test:Mock { packageName: ".",functionName: "intAdd"}
 public function mockIntAdd(int a, int b) returns (int) {
     io:println("I'm the mock function!");
     return (a - b);

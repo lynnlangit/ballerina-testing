@@ -1,114 +1,19 @@
 # Service Composition
 
-A service composition is an aggregate of services collectively composed to automate a particular task or business process. 
-
-> This guide walks you through the process of implementing a service composition using Ballerina language. 
-
-The following are the sections available in this guide.
-
-- [What you'll build](#what-youll-build)
-- [Prerequisites](#prerequisites)
-- [Implementation](#implementation)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Observability](#observability)
-
-## What you’ll build
-To understanding how you can build a service composition using Ballerina, let's consider a real-world use case of a Travel agency that arranges complete tours for users. A tour package includes airline ticket reservation, hotel room reservation and car rental. Therefore, the Travel agency service requires communicating with other necessary back-ends. The following diagram illustrates this use case clearly.
+A service composition is an aggregate of services collectively composed to automate a particular task or business process. To understand how you can build a service composition using Ballerina, let's consider a real-world use case of a Travel agency that arranges complete tours for users. A tour package includes airline ticket reservation, hotel room reservation and car rental. Therefore, the Travel agency service requires communicating with other necessary back-ends. The following diagram illustrates this use case clearly.
 
 ![alt text](/images/service-composition.svg)
 
 Travel agency is the service that acts as the composition initiator. The other three services are external services that the travel agency service calls to do airline ticket booking, hotel reservation and car rental. These are not necessarily Ballerina services and can theoretically be third-party services that the travel agency service calls to get things done. However, for the purposes of setting up this scenario and illustrating it in this guide, these third-party services are also written in Ballerina.
 
-## Prerequisites
- - [Ballerina Distribution](https://ballerina.io/learn/getting-started/)
-- A Text Editor or an IDE 
-
-### Optional requirements
-- Ballerina IDE plugins ([IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina), [VSCode](https://marketplace.visualstudio.com/items?itemName=WSO2.Ballerina), [Atom](https://atom.io/packages/language-ballerina))
-- [Docker](https://docs.docker.com/engine/installation/)
-- [Kubernetes](https://kubernetes.io/docs/setup/)
-
-## Implementation
-
-> If you want to skip the basics, you can download the git repo and directly move to the "Testing" section by skipping  "Implementation" section.
-
-### Create the project structure
-
-Ballerina is a complete programming language that supports custom project structures. Use the following package structure for this guide.
-
-```
-service-composition
-  └── guide
-      ├── airline_reservation
-      │   ├── airline_reservation_service.bal
-      │   └── tests
-      │       └── airline_reservation_service_test.bal
-      ├── car_rental
-      │   ├── car_rental_service.bal
-      │   └── tests
-      │       └── car_rental_service_test.bal
-      ├── hotel_reservation
-      │   ├── hotel_reservation_service.bal
-      │   └── tests
-      │       └── hotel_reservation_service_test.bal
-      ├── travel_agency
-      │   └── travel_agency_service.bal
-      └── tests
-          └── travel_agency_service_test.bal
-```
-
-- Create the above directories in your local machine and also create empty `.bal` files.
-
-- Then open the terminal and navigate to `service-composition/guide` and run Ballerina project initializing toolkit.
-```bash
-   $ ballerina init
-```
-
-### Developing the service
-
-Let's look at the implementation of the travel agency service, which acts as the composition initiator.
-
-Arranging a complete tour travel agency service requires communicating with three other services: airline reservation, hotel reservation, and car rental. All these services accept POST requests with appropriate JSON payloads and send responses back with JSON payloads. Request and response payloads are similar for all three backend services.
-
-Sample request payload:
-```bash
-{"Name":"Bob", "ArrivalDate":"12-03-2018", "DepartureDate":"13-04-2018", 
- "Preference":<service_dependent_preference>};
-```
-
-Sample response payload:
-
-```bash
-{"Status":"Success"}
-```
-
-When a client initiates a request to arrange a tour, the travel agency service first needs to communicate with the airline reservation service to book a flight ticket. To check the implementation of airline reservation service, see the [airline_reservation_service.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/airline_reservation/airline_reservation_service.bal) file.
-
-Once the airline ticket reservation is successful, the travel agency service needs to communicate with the hotel reservation service to reserve hotel rooms. To check the implementation of hotel reservation service, see the [hotel_reservation_service.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/hotel_reservation/hotel_reservation_service.bal) file.
-
-Finally, the travel agency service needs to connect with the car rental service to arrange internal transports. To check the implementation of car rental service, see the [car_rental_service.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/car_rental/car_rental_service.bal) file.
-
-If all services work successfully, the travel agency service confirms and arrange the complete tour for the user. The skeleton of `travel_agency_service.bal` file is attached below. Inline comments are added for better understanding.
-Refer to the [travel_agency_service.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/travel_agency/travel_agency_service.bal) to see the complete implementation of the travel agency service.
-
-
-## Testing 
-
-### Invoking the service
-
-- Navigate to `service-composition/guide` and run the following commands in separate terminals to start all four HTTP services. This will start the `Airline Reservation`, `Hotel Reservation`, `Car Rental` and `Travel Agency` services in ports 9091, 9092, 9093 and 9090 respectively.
+## Running the Sample
+- Open a terminal at `service-composition/guide` and run `ballerina init`
+- Open FOUR terminals at `service-composition/guide` and run FOUR commands in separate terminals to start all four HTTP services. This will start the `Airline Reservation`, `Hotel Reservation`, `Car Rental` and `Travel Agency` services in ports 9091, 9092, 9093 and 9090 respectively.
 
 ```bash
    $ ballerina run airline_reservation/
-```
-```bash
    $ ballerina run hotel_reservation/
-```
-```bash
    $ ballerina run car_rental/
-```
-```bash
    $ ballerina run travel_agency/
 ```
    
@@ -128,16 +33,7 @@ Refer to the [travel_agency_service.bal](https://github.com/ballerina-guides/ser
    {"Message":"Congratulations! Your journey is ready!!"}
 ``` 
       
-### Writing unit tests 
-
-In Ballerina, the unit test cases should be in the same package inside a folder named as 'tests'.  When writing the test functions the below convention should be followed.
-- Test functions should be annotated with `@test:Config`. See the below example.
-```ballerina
-   @test:Config
-   function testTravelAgencyService () {
-```
-  
-This guide contains unit test cases for each service implemented above. 
+### Running unit tests 
 
 To run the tests, open your terminal and navigate to `service-composition/guide`, and run the following command.
 ```bash
@@ -146,29 +42,7 @@ To run the tests, open your terminal and navigate to `service-composition/guide`
 
 To check the implementations of these test files, refer to the [airline_reservation_service_test.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/airline_reservation/tests/airline_reservation_service_test.bal), [hotel_reservation_service_test.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/hotel_reservation/tests/hotel_reservation_service_test.bal), [car_rental_service_test.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/car_rental/tests/car_rental_service_test.bal) and [travel_agency_service_test.bal](https://github.com/ballerina-guides/service-composition/blob/master/guide/tests/travel_agency_service_test.bal).
 
-## Deployment
-
-Once you are done with the development, you can deploy the services using any of the methods that are listed below. 
-
-### Deploying locally
-
-- As the first step, you can build Ballerina executable archives (.balx) of the services that we developed above. Navigate to `service-composition/guide` and run the following command. 
-```bash
-   $ ballerina build <Package_Name>
-```
-
-- Once the .balx files are created inside the target folder, you can run them using the following command. 
-```bash
-   $ ballerina run target/<Exec_Archive_File_Name>
-```
-
-- The successful execution of a service will show us something similar to the following output. 
-```
-   ballerina: initiating service(s) in 'target/travel_agency.balx'
-   ballerina: started HTTP/WS endpoint 0.0.0.0:9090
-```
-
-### Deploying on Docker
+## Deploying on Docker
 
 You can run the service that we developed above as a docker container. As Ballerina platform includes [Ballerina_Docker_Extension](https://github.com/ballerinax/docker), which offers native support for running ballerina programs on containers, you just need to put the corresponding docker annotations on your service code. 
 

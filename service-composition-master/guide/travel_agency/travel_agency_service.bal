@@ -1,31 +1,31 @@
 
 import ballerina/http;
-//import ballerinax/docker;
-//import ballerinax/kubernetes;
+import ballerinax/docker;
+import ballerinax/kubernetes;
 
-//@docker:Config {
-//    registry:"ballerina.guides.io",
-//    name:"travel_agency_service",
-//    tag:"v1.0"
-//}
-//
-//@docker:Expose{}
+@docker:Config {
+   registry:"ballerina.guides.io",
+   name:"travel_agency_service",
+   tag:"v1.0"
+}
 
-//@kubernetes:Ingress {
-//  hostname:"ballerina.guides.io",
-//  name:"ballerina-guides-travel-agency-service",
-//  path:"/"
-//}
-//
-//@kubernetes:Service {
-//  serviceType:"NodePort",
-//  name:"ballerina-guides-travel-agency-service"
-//}
-//
-//@kubernetes:Deployment {
-//  image:"ballerina.guides.io/travel_agency_service:v1.0",
-//  name:"ballerina-guides-travel-agency-service"
-//}
+@docker:Expose{}
+
+@kubernetes:Ingress {
+ hostname:"ballerina.guides.io",
+ name:"ballerina-guides-travel-agency-service",
+ path:"/"
+}
+
+@kubernetes:Service {
+ serviceType:"NodePort",
+ name:"ballerina-guides-travel-agency-service"
+}
+
+@kubernetes:Deployment {
+ image:"ballerina.guides.io/travel_agency_service:v1.0",
+ name:"ballerina-guides-travel-agency-service"
+}
 
 endpoint http:Listener travelAgencyEP {
     port:9090

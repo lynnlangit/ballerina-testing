@@ -9,7 +9,7 @@ public function mockReturnPi() returns (float) {
 }
 
 @test:Config {}
-function testAssertIntEquals() {
+function testAssertPiEquals() {
     float answer = 0;
     answer = returnPi( );
     console:println("Function mocking test");

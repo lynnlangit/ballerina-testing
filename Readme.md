@@ -57,4 +57,4 @@ There are several language principals and capabilities built into Ballerina Lang
 
 -------
 
- For more information - https://ballerina.io/learn/how-to-test-ballerina-code/index.html#service-startstop-utility
+ For more information - https://ballerina.io/learn/how-to-test-ballerina-code/index.html

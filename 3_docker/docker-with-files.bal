@@ -1,5 +1,5 @@
 // build .bal, run docker file, then curl
-// curl http://localhost:9090/helloWorldFiles/config/tyler
+// curl http://localhost:9090/helloWorldFiles/config/tyler | lynn
 // curl http://localhost:9090/helloWorldFiles/data
 
 import ballerina/config;

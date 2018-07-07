@@ -1,3 +1,5 @@
+// shows using @test:Mock to mock a function
+
 import ballerina/test;
 import ballerina/io;
 

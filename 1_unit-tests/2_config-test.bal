@@ -1,3 +1,5 @@
+// shows using @test:Config to run a subset of tests
+
 import ballerina/test;
 import ballerina/io;
 

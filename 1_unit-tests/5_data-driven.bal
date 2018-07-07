@@ -1,3 +1,5 @@
+// shows using @test:Config with data providers
+
 import ballerina/test;
 import ballerina/io;
 

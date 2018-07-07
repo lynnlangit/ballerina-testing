@@ -1,7 +1,8 @@
+// shows start/stop services test pattern
+
 import ballerina/test;
 import ballerina/io;
 import ballerina/http;
-import ballerina/log;
 
 boolean serviceStarted;
 function startService() {serviceStarted = test:startServices("hello-world-service");}
@@ -24,7 +25,7 @@ function testFunc() { endpoint http:Client httpEndpoint { url: "http://localhost
 
 function stopService() {test:stopServices("hello-world-service");
 }
-// service being test is below
+// service being tested is below
 // Invoke `curl http://localhost:9090/hello/sayHello`
 service<http:Service> hello bind { port: 9090 } {
 
@@ -32,7 +33,7 @@ service<http:Service> hello bind { port: 9090 } {
         http:Response res = new;
         res.setPayload("Hello, World!");
 
-        caller->respond(res) but { error e => log:printError(
-                           "Error sending response", err = e) };
+        caller->respond(res) but { error e => io:println(
+                          "Error sending response") };
     }
 }

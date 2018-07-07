@@ -1,7 +1,5 @@
-// TDD - write the test and method stub
 // run via `ballerina test...` - it should fail.
 // update line 7 (string) to match line 14
-// re-run test - it should pass.
 
 import ballerina/test;
 

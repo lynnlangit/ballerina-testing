@@ -1,3 +1,5 @@
+// shows @test:Config to setup test dependencies
+
 import ballerina/test;
 import ballerina/io;
 

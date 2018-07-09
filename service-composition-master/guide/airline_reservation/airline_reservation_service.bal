@@ -1,30 +1,30 @@
 import ballerina/http;
-import ballerinax/docker;
-import ballerinax/kubernetes;
+// import ballerinax/docker;
+// import ballerinax/kubernetes;
 
-@docker:Config {
-   registry:"ballerina.guides.io",
-   name:"airline_reservation_service",
-   tag:"v1.0"
-}
+// @docker:Config {
+//    registry:"ballerina.guides.io",
+//    name:"airline_reservation_service",
+//    tag:"v1.0"
+// }
 
-@docker:Expose{}
+// @docker:Expose{}
 
-@kubernetes:Ingress {
- hostname:"ballerina.guides.io",
- name:"ballerina-guides-airline-reservation-service",
- path:"/"
-}
+// @kubernetes:Ingress {
+//  hostname:"ballerina.guides.io",
+//  name:"ballerina-guides-airline-reservation-service",
+//  path:"/"
+// }
 
-@kubernetes:Service {
- serviceType:"NodePort",
- name:"ballerina-guides-airline-reservation-service"
-}
+// @kubernetes:Service {
+//  serviceType:"NodePort",
+//  name:"ballerina-guides-airline-reservation-service"
+// }
 
-@kubernetes:Deployment {
- image:"ballerina.guides.io/airline_reservation_service:v1.0",
- name:"ballerina-guides-airline-reservation-service"
-}
+// @kubernetes:Deployment {
+//  image:"ballerina.guides.io/airline_reservation_service:v1.0",
+//  name:"ballerina-guides-airline-reservation-service"
+// }
 
 endpoint http:Listener airlineEP {
     port:9091

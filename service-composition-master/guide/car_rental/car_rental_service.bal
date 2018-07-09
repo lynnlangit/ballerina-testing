@@ -1,30 +1,30 @@
 import ballerina/http;
-import ballerinax/docker;
-import ballerinax/kubernetes;
+// import ballerinax/docker;
+// import ballerinax/kubernetes;
 
-@docker:Config {
-   registry:"ballerina.guides.io",
-   name:"car_rental_service",
-   tag:"v1.0"
-}
+// @docker:Config {
+//    registry:"ballerina.guides.io",
+//    name:"car_rental_service",
+//    tag:"v1.0"
+// }
 
-@docker:Expose{}
+// @docker:Expose{}
 
-@kubernetes:Ingress {
- hostname:"ballerina.guides.io",
- name:"ballerina-guides-car-rental-service",
- path:"/"
-}
+// @kubernetes:Ingress {
+//  hostname:"ballerina.guides.io",
+//  name:"ballerina-guides-car-rental-service",
+//  path:"/"
+// }
 
-@kubernetes:Service {
- serviceType:"NodePort",
- name:"ballerina-guides-car-rental-service"
-}
+// @kubernetes:Service {
+//  serviceType:"NodePort",
+//  name:"ballerina-guides-car-rental-service"
+// }
 
-@kubernetes:Deployment {
- image:"ballerina.guides.io/car_rental_service:v1.0",
- name:"ballerina-guides-car-rental-service"
-}
+// @kubernetes:Deployment {
+//  image:"ballerina.guides.io/car_rental_service:v1.0",
+//  name:"ballerina-guides-car-rental-service"
+// }
 
 endpoint http:Listener carEP {
     port:9093

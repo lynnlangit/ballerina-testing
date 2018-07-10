@@ -3,7 +3,7 @@
 
 import ballerina/test;
 
-string greetingAct = "Hello, World!";
+string greetingAct = "Hello, World !";
 
 function sayHello(string... args) returns (string) {
     return greetingAct;

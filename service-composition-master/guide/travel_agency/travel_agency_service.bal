@@ -1,46 +1,36 @@
 import ballerina/http;
-// import ballerinax/docker;
-// import ballerinax/kubernetes;
+//import ballerinax/docker;
+//import ballerinax/kubernetes;
 
-// @docker:Config {
+//@docker:Config {
 //    registry:"ballerina.guides.io",
 //    name:"travel_agency_service",
 //    tag:"v1.0"
-// }
+//}
+//
+//@docker:Expose{}
 
-// @docker:Expose{}
-
-// @kubernetes:Ingress {
+//@kubernetes:Ingress {
 //  hostname:"ballerina.guides.io",
 //  name:"ballerina-guides-travel-agency-service",
 //  path:"/"
-// }
-
-// @kubernetes:Service {
+//}
+//
+//@kubernetes:Service {
 //  serviceType:"NodePort",
 //  name:"ballerina-guides-travel-agency-service"
-// }
-
-// @kubernetes:Deployment {
+//}
+//
+//@kubernetes:Deployment {
 //  image:"ballerina.guides.io/travel_agency_service:v1.0",
 //  name:"ballerina-guides-travel-agency-service"
-// }
+//}
 
-endpoint http:Listener travelAgencyEP {
-    port:9090
-};
 
-endpoint http:Client airlineReservationEP {
-    url:"http://localhost:9091/airline"
-};
-
-endpoint http:Client hotelReservationEP {
-    url:"http://localhost:9092/hotel"
-};
-
-endpoint http:Client carRentalEP {
-    url:"http://localhost:9093/car"
-};
+endpoint http:Listener travelAgencyEP {port:9090};
+endpoint http:Client airlineReservationEP {url:"http://localhost:9091/airline"};
+endpoint http:Client hotelReservationEP {url:"http://localhost:9092/hotel"};
+endpoint http:Client carRentalEP {url:"http://localhost:9093/car"};
 
 @http:ServiceConfig {basePath:"/travel"}
 service<http:Service> travelAgencyService bind travelAgencyEP {
@@ -79,7 +69,7 @@ service<http:Service> travelAgencyService bind travelAgencyEP {
         json outReqPayloadAirline = outReqPayload;
         outReqPayloadAirline.Preference = airlinePreference;
 
-        http:Response inResAirline = check airlineReservationEP -> post("/reserve", outReqPayloadAirline);
+        http:Response inResAirline = check airlineReservationEP -> post("/reserve", untaint outReqPayloadAirline);
 
         var airlineResPayload = check inResAirline.getJsonPayload();
         string airlineStatus = airlineResPayload.Status.toString();
@@ -93,7 +83,7 @@ service<http:Service> travelAgencyService bind travelAgencyEP {
         json outReqPayloadHotel = outReqPayload;
         outReqPayloadHotel.Preference = hotelPreference;
 
-        http:Response inResHotel = check hotelReservationEP -> post("/reserve", outReqPayloadHotel);
+        http:Response inResHotel = check hotelReservationEP -> post("/reserve", untaint outReqPayloadHotel);
 
         var hotelResPayload = check inResHotel.getJsonPayload();
         string hotelStatus = hotelResPayload.Status.toString();
@@ -107,7 +97,7 @@ service<http:Service> travelAgencyService bind travelAgencyEP {
         json outReqPayloadCar = outReqPayload;
         outReqPayloadCar.Preference = carPreference;
 
-        http:Response inResCar = check carRentalEP -> post("/rent", outReqPayloadCar);
+        http:Response inResCar = check carRentalEP -> post("/rent", untaint outReqPayloadCar);
 
         var carResPayload = check inResCar.getJsonPayload();
         string carRentalStatus = carResPayload.Status.toString();

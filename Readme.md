@@ -50,7 +50,11 @@ There are several language principals and capabilities built into Ballerina Lang
 - `ballerina test [fileName-test.bal]`- runs *.bal tests in file
 - `ballerina run [package]` - runs *.bal files and services in folder
 - `ballerina test [package]`- runs *.bal tests in folder
-- `ballerina build [package]` - builds *.bal files in folder to *.balx, also creates Docker/Kubernetes files if services are annotated
+- `ballerina build [package]` - builds *.bal files in folder to *.balx, also creates Docker/Kubernetes files if services 
+are annotated
+- `ballerina search [external service name]` - searches Ballerina Central Repository for external packages, i.e. 'github'
+- `ballerina pull [external service name]` - copies external package code into local instance
+- `composer` - opens local instance of Ballerina Composer IDE
 
 
 -------

@@ -54,7 +54,6 @@ function main(string... args) {
     //  Each time the stream receives an event, call the `printStatusCount` function.
     filteredStatusCountStream.subscribe(printStatusCount);
 
-    // Publish the events that are generated.
     teacherStream.publish(t1);
     teacherStream.publish(t2);
     teacherStream.publish(t3);

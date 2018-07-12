@@ -1,17 +1,16 @@
 import ballerina/io;
 
-// Use one or more workers to define a function execution. 
 // Invoke the function to start all workers automatically.
 function main(string... args) {
     worker w1 {
-        io:println("Hello, World! #m");
+        io:println("Hello, World! #w1");
     }
 
     worker w2 {
-        io:println("Hello, World! #n");
+        io:println("Hello, World! #w2");
     }
 
     worker w3 {
-        io:println("Hello, World! #k");
+        io:println("Hello, World! #w3");
     }
 }

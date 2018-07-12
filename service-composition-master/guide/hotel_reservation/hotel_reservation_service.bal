@@ -1,34 +1,32 @@
 import ballerina/http;
-// import ballerinax/docker;
-// import ballerinax/kubernetes;
+//import ballerinax/docker;
+//import ballerinax/kubernetes;
 
-// @docker:Config {
+//@docker:Config {
 //    registry:"ballerina.guides.io",
 //    name:"hotel_reservation_service",
 //    tag:"v1.0"
-// }
+//}
+//
+//@docker:Expose{}
 
-// @docker:Expose{}
-
-// @kubernetes:Ingress {
+//@kubernetes:Ingress {
 //  hostname:"ballerina.guides.io",
 //  name:"ballerina-guides-hotel-reservation-service",
 //  path:"/"
-// }
-
-// @kubernetes:Service {
+//}
+//
+//@kubernetes:Service {
 //  serviceType:"NodePort",
 //  name:"ballerina-guides-hotel-reservation-service"
-// }
-
-// @kubernetes:Deployment {
+//}
+//
+//@kubernetes:Deployment {
 //  image:"ballerina.guides.io/hotel_reservation_service:v1.0",
 //  name:"ballerina-guides-hotel-reservation-service"
-// }
+//}
 
-endpoint http:Listener hotelEP {
-    port:9092
-};
+endpoint http:Listener hotelEP {port:9092};
 
 @final string AC = "Air Conditioned";
 @final string NORMAL = "Normal";

@@ -2,16 +2,13 @@ import ballerina/test;
 import ballerina/http;
 
 @test:BeforeSuite
-function beforeFunc() {
-    _ = test:startServices("hotel_reservation");
-}
+function beforeFunc() {  _ = test:startServices("hotel_reservation");}
 
-endpoint http:Client clientEP {
-    url:"http://localhost:9092/hotel"
-};
+endpoint http:Client clientEP {url:"http://localhost:9092/hotel"};
 
 @test:Config
 function testHotelReservationService() {
+
     http:Request req;
 
     json payload = {

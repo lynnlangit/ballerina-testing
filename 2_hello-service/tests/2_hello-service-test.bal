@@ -8,7 +8,7 @@ function startService() {serviceStarted = test:startServices("2_hello-service");
 
 @test:Config { before: "startService",after: "stopService" }
 function testFunc() {
-    endpoint http:Client httpEndpoint { url: "http://localhost:9090" };
+    endpoint http:Client httpEndpoint { url: "http://localhost:9097" };
     test:assertTrue(serviceStarted, msg = "Unable to start the service");
 
     string response1 = "Hello, World!";

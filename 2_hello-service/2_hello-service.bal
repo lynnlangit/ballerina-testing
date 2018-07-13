@@ -7,7 +7,7 @@
 import ballerina/http;
 import ballerina/log;
 
-service<http:Service> hello bind { port: 9090 } {
+service<http:Service> hello bind { port: 9097 } {
 
     sayHello(endpoint caller, http:Request req) {
         http:Response res = new;

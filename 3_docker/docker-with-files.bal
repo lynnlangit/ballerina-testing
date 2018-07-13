@@ -16,7 +16,7 @@ import ballerinax/docker;
 }
 
 @docker:Expose {}
-endpoint http:Listener helloWorldFEP { port:9090};
+endpoint http:Listener helloWorldFEP { port:9096};
 
 @http:ServiceConfig {basePath:"/helloWorldFiles"}
 service<http:Service> helloWorldFiles bind helloWorldFEP {

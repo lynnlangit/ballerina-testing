@@ -2,7 +2,7 @@ import ballerina/http;
 // import ballerinax/docker;
 
 // @docker:Expose{}
-endpoint http:Listener helloWorldEP {port:9090};
+endpoint http:Listener helloWorldEP {port:9095};
 
 // @docker:Config {
 //     registry:"docker.abc.com",

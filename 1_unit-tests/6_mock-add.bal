@@ -1,4 +1,4 @@
-// shows using @test:Mock to mock a function
+// run via `ballerina test...` - it should fail
 
 import ballerina/test;
 import ballerina/io;
@@ -14,7 +14,7 @@ function testAssertIntEquals() {
     int answer = 0;
     answer = intAdd(5, 3);
     io:println("Function mocking test");
-    test:assertEquals(answer, 2, msg = "function mocking failed");
+    test:assertEquals(answer, 8, msg = "function mocking failed");
 }
 
 public function intAdd(int a, int b) returns (int) {

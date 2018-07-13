@@ -1,4 +1,4 @@
-// shows using @test:Config with data providers
+// run via `ballerina test...` - it should fail
 
 import ballerina/test;
 import ballerina/io;
@@ -18,7 +18,7 @@ function ValueProvider() returns (string[][]) {
 
 @test:Config {dataProvider: "jsonDataProvider"}
 function testJsonObjects(json fValue, json sValue, json result) {
-    json a = { "a": "a" };
+    json a = { "a": "A" };
     json b = { "b": "b" };
     json c = { "c": "c" };
     test:assertEquals(fValue, a, msg = "json data provider failed");

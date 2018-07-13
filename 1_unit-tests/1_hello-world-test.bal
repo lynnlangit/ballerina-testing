@@ -1,5 +1,4 @@
-// run via `ballerina test...` - it should fail.
-// update line 7 (string) to match line 14
+// run via `ballerina test...` - it should fail
 
 import ballerina/test;
 

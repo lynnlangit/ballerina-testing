@@ -1,5 +1,4 @@
-//run `ballerina test 3_test-groups.bal --groups g1,g2`  - runs two of three
-//run `ballerina test 3_test-groups.bal` -- runs all three
+//run `ballerina test 3_test-groups.bal --groups g1,g2`  
 
 import ballerina/test;
 import ballerina/io;
@@ -13,7 +12,7 @@ function testFunction1() {
 @test:Config {groups: ["g1", "g2"]}
 function testFunction2() {
     io:println("I'm in test belonging to g1 and g2!");
-    test:assertTrue(true, msg = "Failed!");
+    test:assertTrue(false, msg = "Failed!");
 }
 
 @test:Config

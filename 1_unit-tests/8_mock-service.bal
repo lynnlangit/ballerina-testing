@@ -1,4 +1,4 @@
-// shows start/stop services test pattern
+// run via `ballerina test...` - it should fail
 
 import ballerina/test;
 import ballerina/io;
@@ -12,7 +12,7 @@ function testFunc() { endpoint http:Client httpEndpoint { url: "http://localhost
 
     test:assertTrue(serviceStarted, msg = "Unable to start the service");
 
-    string response1 = "Hello, World!";
+    string response1 = "Hello, World !";
     var response = httpEndpoint->get("/hello/sayHello");
     match response {
         http:Response resp => {

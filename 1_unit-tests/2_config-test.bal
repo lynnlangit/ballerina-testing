@@ -1,4 +1,4 @@
-// shows using @test:Config to run a subset of tests
+// run via `ballerina test...` - it should fail
 
 import ballerina/test;
 import ballerina/io;
@@ -6,7 +6,7 @@ import ballerina/io;
 @test:Config {enable: true}
 function testEnabled() {
     io:println("I'm an enabaled test");
-    test:assertTrue(true, msg = "Failed!");
+    test:assertTrue(false, msg = "Failed!");
 }
 
 @test:Config {enable: false}

@@ -1,4 +1,4 @@
-// shows @test:Config to setup test dependencies
+// run via `ballerina test...` - it should fail
 
 import ballerina/test;
 import ballerina/io;
@@ -18,5 +18,5 @@ function testFunction5() {
 @test:Config
 function testFunction6() {
     io:println("I'm in test function 6!");
-    test:assertTrue(true, msg = "Failed!");
+    test:assertTrue(false, msg = "Failed!");
 }

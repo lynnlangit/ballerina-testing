@@ -1,6 +1,6 @@
 # Ballerina Language Unit Tests
 
-The Repo shows code examples for writing & running Ballerina Language unit tests.  An example of testing a Ballerina service is shown below.
+The Repo shows code examples for writing & running Ballerina Language unit tests.  An example of testing a Ballerina service is shown below.  **IMPORTANT** the majority of test examples are set to FAIL, this is for demo purposes.
 
 ![test service](/images/test-service.png)
 

@@ -45,7 +45,7 @@ function main(string... args) {
     // Create sample events, and send the events to the `teacherStream` input stream.
     Teacher t1 = {name: "Matt", age: 38, status: "single",
         batch: "LK2014", school: "Higher Grounds"};
-    Teacher t2 = {name: "David", age: 51, status: "single",
+    Teacher t2 = {name: "David", age: 51, status: "SINGLE",
         batch: "LK1998", school: "Moreno Valley Middle"};
     Teacher t3 = {name: "Doug", age: 35, status: "married",
         batch: "LK1988", school: "Le Port Middle"};

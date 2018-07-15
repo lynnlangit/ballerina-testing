@@ -1,4 +1,6 @@
-// this test currently fails, regression bug being addressed by the team
+// to run all tests for this service composition example
+// `cd guide`
+// `ballerina test`
 
 import ballerina/test;
 import ballerina/http;
@@ -12,16 +14,14 @@ function beforeFunc() {
     _ = test:startServices("car_rental");
 }
 
-endpoint http:Client clientEP {
-    url:"http://localhost:9090/travel"
-};
+endpoint http:Client clientEP { url:"http://localhost:9098/travel" };
 
 @test:Config
 function testTravelAgencyService() {
 
     http:Request req;
     json payload = {
-        "Name":"Alice",
+        "Name":"Lynn",
         "ArrivalDate":"12-03-2018",
         "DepartureDate":"13-04-2018",
         "Preference":{"Airline":"Business", "Accommodation":"Air Conditioned", "Car":"Air Conditioned"}

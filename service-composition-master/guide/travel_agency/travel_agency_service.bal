@@ -27,7 +27,7 @@ import ballerina/http;
 //}
 
 
-endpoint http:Listener travelAgencyEP {port:9090};
+endpoint http:Listener travelAgencyEP {port:9098};
 endpoint http:Client airlineReservationEP {url:"http://localhost:9091/airline"};
 endpoint http:Client hotelReservationEP {url:"http://localhost:9092/hotel"};
 endpoint http:Client carRentalEP {url:"http://localhost:9093/car"};

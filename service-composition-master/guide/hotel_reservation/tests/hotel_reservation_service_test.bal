@@ -12,7 +12,7 @@ function testHotelReservationService() {
     http:Request req;
 
     json payload = {
-        "Name":"Alice",
+        "Name":"Lynn",
         "ArrivalDate":"12-03-2018",
         "DepartureDate":"13-04-2018",
         "Preference":"Air Conditioned"

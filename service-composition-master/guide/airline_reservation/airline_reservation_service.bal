@@ -26,9 +26,7 @@ import ballerina/http;
 //  name:"ballerina-guides-airline-reservation-service"
 // }
 
-endpoint http:Listener airlineEP {
-    port:9091
-};
+endpoint http:Listener airlineEP { port:9091};
 
 @final string ECONOMY = "Economy";
 @final string BUSINESS = "Business";

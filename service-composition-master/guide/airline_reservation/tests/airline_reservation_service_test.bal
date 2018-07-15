@@ -6,14 +6,12 @@ function beforeFunc() {
     _ = test:startServices("airline_reservation");
 }
 
-endpoint http:Client clientEP {
-    url:"http://localhost:9091/airline"
-};
+endpoint http:Client clientEP {url:"http://localhost:9091/airline"};
 
 @test:Config
 function testAirlineReservationService() {
     json payload = {
-        "Name":"Alice",
+        "Name":"Lynn",
         "ArrivalDate":"12-03-2018",
         "DepartureDate":"13-04-2018",
         "Preference":"Business"

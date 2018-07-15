@@ -26,9 +26,7 @@ import ballerina/http;
 //  name:"ballerina-guides-car-rental-service"
 // }
 
-endpoint http:Listener carEP {
-    port:9093
-};
+endpoint http:Listener carEP {port:9093};
 
 @final string AC = "Air Conditioned";
 @final string NORMAL = "Normal";

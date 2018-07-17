@@ -1,7 +1,7 @@
 // To test as a package - cd to top level `ballerina-test`
 // Test by `ballerina test 2_hello-service`
 // NOTE: Do NOT run the actual service, as you are using 'startService' & 'stopService'
-// Invoke `curl http://localhost:9090/hello/sayHello`
+// Invoke `curl http://localhost:9097/hello/sayHello`
 // Shows use of log for service response errors (rather than console)
 
 import ballerina/http;

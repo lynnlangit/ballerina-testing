@@ -1,6 +1,7 @@
 // build .bal, run docker file, then curl
-// curl http://localhost:9090/helloWorldFiles/config/tyler | lynn
-// curl http://localhost:9090/helloWorldFiles/data
+// invoke `curl http://localhost:9096/helloWorldFiles/data`
+// invoke `curl http://localhost:9096/helloWorldFiles/config/tyler` | lynn
+
 
 import ballerina/config;
 import ballerina/http;
@@ -50,7 +51,7 @@ function readFile(string filePath) returns (string) {
     io:ByteChannel bchannel = io:openFile(filePath, permission);
     io:CharacterChannel channel = new io:CharacterChannel(bchannel, "UTF-8");
 
-    var readOutput = channel.read(50);
+    var readOutput = channel.read(100);
     match readOutput {
         string text => {
             return text;

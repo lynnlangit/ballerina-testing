@@ -1,1 +1,1 @@
-this is some sample data which will be part of the container
+We hope you are enjoying our session on testing in Ballerina Language

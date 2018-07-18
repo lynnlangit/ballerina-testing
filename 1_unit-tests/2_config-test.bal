@@ -6,13 +6,13 @@ import ballerina/io;
 @test:Config {enable: true}
 function testEnabled() {
     io:println("I'm an enabaled test");
-    test:assertTrue(false, msg = "Failed!");
+    test:assertTrue(true, msg = "Failed!");
 }
 
 @test:Config {enable: false}
 function testDisabled() {
     io:println("I'm a disabled test");
-    test:assertTrue(true, msg = "Failed!");
+    test:assertTrue(false, msg = "Failed!");
 }
 
 @test:Config

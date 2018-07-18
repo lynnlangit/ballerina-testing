@@ -25,7 +25,6 @@ function testFunc() { endpoint http:Client httpEndpoint { url: "http://localhost
 
 function stopService() {test:stopServices("hello-world-service");}
 
-// service being tested is below
 // Invoke `curl http://localhost:9090/hello/sayHello`
 service<http:Service> hello bind { port: 9090 } {
 

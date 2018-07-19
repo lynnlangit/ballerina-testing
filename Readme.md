@@ -1,6 +1,6 @@
-# Ballerina Language Unit Tests
+# Ballerina Language Testing Code 
 
-The Repo shows code examples for writing & running Ballerina Language unit tests.  An example of testing a Ballerina service is shown below.  These code examples run with Ballerina Language version - RC 0.980.0 (Jul 10, 2018).
+This Repo shows code examples for writing & running Ballerina Language unit tests.  An example of testing a Ballerina service is shown below.  These code examples run with Ballerina Language version - RC 0.980.0 (Jul 10, 2018).
 
 
 ![test service](/images/test-service.png)  
@@ -49,6 +49,7 @@ The Repo shows code examples for writing & running Ballerina Language unit tests
     - `ballerina test [package]`- runs *.bal tests in folder
 - Working with Packages
     - `ballerina build [package]` - builds *.bal files in folder to *.balx, also creates Docker/Kubernetes files if services 
+    - `ballerina list` - shows files in package tree
 are annotated
     - `ballerina search [external service name]` - searches Ballerina Central Repository for external packages, i.e. 'github'
     - `ballerina pull [external service name]` - copies external package code into local instance

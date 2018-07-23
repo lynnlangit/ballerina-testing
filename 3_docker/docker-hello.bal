@@ -1,4 +1,5 @@
 // Invoke `curl http://localhost:9095/helloWorld/sayHello`
+// uncomment and `ballerina build...` to build docker container
 
 import ballerina/http;
 // import ballerinax/docker;

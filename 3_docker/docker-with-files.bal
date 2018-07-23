@@ -2,7 +2,6 @@
 // invoke `curl http://localhost:9096/helloWorldFiles/data`
 // invoke `curl http://localhost:9096/helloWorldFiles/config/tyler` | lynn
 
-
 import ballerina/config;
 import ballerina/http;
 import ballerina/io;

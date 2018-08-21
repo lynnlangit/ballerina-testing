@@ -4,16 +4,20 @@ import ballerina/http;
 
 boolean serviceStarted;
 
-//function startService() {serviceStarted = test:startServices("2_hello-service");}
+function startService() {
+    //serviceStarted = test:startServices("hello-world-service");
+}
 
-//@test:Config { before: "startService",after: "stopService" }
-@test:Config 
+@test:Config { before: "startService",after: "stopService"}
 function testFunc() {
-    endpoint http:Client httpEndpoint { url: "http://localhost:9097" };
-    test:assertTrue(serviceStarted, msg = "Unable to start the service");
+    // Invoking the main function
+    endpoint http:Client httpEndpoint { url: "http://localhost:9090" };
+    // Chck whether the server is started
+    //test:assertTrue(serviceStarted, msg = "Unable to start the service");
 
     string response1 = "Hello, World!";
 
+    // Send a GET request to the specified endpoint
     var response = httpEndpoint->get("/hello/sayHello");
     match response {
         http:Response resp => {
@@ -24,4 +28,6 @@ function testFunc() {
     }
 }
 
-//function stopService() {test:stopServices("2_hello-service");}
+function stopService() {
+    //test:stopServices("hello-world-service");
+}

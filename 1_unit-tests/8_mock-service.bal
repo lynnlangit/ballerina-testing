@@ -5,13 +5,14 @@ import ballerina/io;
 import ballerina/http;
 
 boolean serviceStarted;
-function startService() {serviceStarted = test:startServices("hello-world-service");}
+//function startService() {serviceStarted = test:startServices("hello-world-service");}
 
-@test:Config { before: "startService",after: "stopService" }
+// @test:Config { before: "startService",after: "stopService" }
+@test:Config 
 function testFunc() { endpoint http:Client httpEndpoint { url: "http://localhost:9090" };
 
     test:assertTrue(serviceStarted, msg = "Unable to start the service");
-    string response1 = "Hello, World !";
+    string response1 = "Hello, World!";
     var response = httpEndpoint->get("/hello/sayHello");
     match response {
         http:Response resp => {
@@ -22,11 +23,9 @@ function testFunc() { endpoint http:Client httpEndpoint { url: "http://localhost
     }
 }
 
-function stopService() {test:stopServices("hello-world-service");}
+//function stopService() {test:stopServices("hello-world-service");}
 
 // Invoke `curl http://localhost:9090/hello/sayHello`
-// Invoke `curl http://localhost:9090/test/sayHello`
-@http:ServiceConfig { basePath: "/test" }
 service<http:Service> hello bind { port: 9090 } {
 
     sayHello(endpoint caller, http:Request req) {

@@ -1,5 +1,3 @@
-// run via `ballerina test...` - it should fail
-
 import ballerina/test;
 
 string greetingAct = "Hello, World !";

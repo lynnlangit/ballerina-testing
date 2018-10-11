@@ -12,7 +12,7 @@ public function mockReturnPi() returns (float) {
 
 @test:Config {}
 function testAssertPiEquals() {
-    float answer = 0;
+    float answer = 0.0;
     answer = returnPi( );
     console:println("Function mocking test");
     test:assertEquals(answer, bmath:PI, msg = "function mocking failed");

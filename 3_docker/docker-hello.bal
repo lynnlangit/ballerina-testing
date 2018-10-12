@@ -2,9 +2,9 @@
 // uncomment and `ballerina build...` to build docker container
 
 import ballerina/http;
-// import ballerinax/docker;
+//import ballerinax/docker;
 
-// @docker:Expose{}
+//@docker:Expose{}
 endpoint http:Listener helloWorldEP {port:9095};
 
 //  @docker:Config {

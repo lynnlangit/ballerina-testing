@@ -1,7 +1,7 @@
 import ballerina/io;
 
 // Invoke the function to start all workers automatically.
-function main(string... args) {
+public function main(string... args) {
     worker w1 {
         io:println("Hello, World! #w4");
     }

@@ -1,7 +1,6 @@
 # Ballerina Language Testing Code 
 
-This Repo shows code examples for writing & running Ballerina Language unit tests.  An example of testing a Ballerina service is shown below.  These code examples run with Ballerina Language version - RC 0.980.0 (Jul 10, 2018).
-
+This Repo shows code examples for writing & running Ballerina Language unit tests.  An example of testing a Ballerina service is shown below.  These code examples run with Ballerina Language version 0.982.0 (Oct 2018).
 
 ![test service](/images/test-service.png)  
 
